@@ -1,0 +1,28 @@
+import mysql.connector
+
+mydb=mysql.connector.connect(
+    host="localhost",
+    user="adityabaradi",
+    passwd= "",
+    database="pokemon_info"
+)
+
+mycursor = mydb.cursor()
+
+if mydb.is_connected():
+    print("Connected")
+
+else:
+    print("Not Connected")
+mycursor = mydb.cursor()
+
+insert_query= """
+INSERT INTO pokemon_prices (Pokemon_Name, Set_Num, Pokemon_Price, Pokemon_Set)
+VALUES (%s, %s, %s, %s);
+    """
+data = ("Pikachu" , "100/103", 2.34, "Shrouded Fables")
+mycursor.execute(insert_query, data)
+mydb.commit()
+print("Successful")
+mycursor.close()
+mydb.close()
