@@ -1,0 +1,10 @@
+import pytesseract
+from PIL import Image
+
+user_imp= input("Input your image as a file: ")
+
+img_file= user_imp
+
+img= Image.open(img_file)
+ocr_result = pytesseract.image_to_string(img)
+print(ocr_result)
