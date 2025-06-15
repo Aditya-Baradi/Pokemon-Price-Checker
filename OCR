@@ -1,10 +1,24 @@
+from tkinter import *
+from tkinter import filedialog
+from tkinter.filedialog import askopenfilename
+
 import pytesseract
 from PIL import Image
 
-user_imp= input("Input your image as a file: ")
+def openFile():
+    filepath= filedialog,askopenfilename()
+    file = open(filepath,'r')
+    print(file.read())
+    file.close()
 
-img_file= user_imp
+#user_imp= input("Input your image as a file: ")
+window =Tk()
+button= Button(text= "Open",command= openFile)
+button.pack()
+window.mainloop()
 
-img= Image.open(img_file)
-ocr_result = pytesseract.image_to_string(img)
-print(ocr_result)
+#img_file= user_imp
+
+#img= Image.open(img_file)
+#ocr_result = pytesseract.image_to_string(img)
+#(ocr_result)
