@@ -15,7 +15,7 @@ class PriceChartingSpider(scrapy.Spider):
         using relative XPaths we ensure that each card's information is
         captured correctly.
         """
-        # Each card is represented by a table row with a ``title`` cell.
+        
         for card in response.xpath('//tr[td[@class="title"]]'):
             name = card.xpath('./td[@class="title"]/a/text()').get()
             price_text = card.xpath('.//span[@class="js-price"]/text()').get()
